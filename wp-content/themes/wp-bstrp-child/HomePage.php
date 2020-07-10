@@ -1,49 +1,71 @@
 <?php
+
 /**
-* Template Name: Home Page
+ * Template Name: Home Page
  */
 
 get_header(); ?>
 
-	<section id="primary" class="content-area col-sm-12">
-		<main id="main" class="site-main" role="main">
+<section id="primary" class="content-area col-sm-12">
+	<main id="main" class="site-main" role="main">
+						
+	<div class="container-uid">
 
-    <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                  <?php 
+      
+	<?php
+      query_posts(array(
+        'post_type' => 'items',
+        'showposts' => 10
+      ));
+	  ?>
+	  		
+	<?php while (have_posts()) : the_post(); ?>
+	<?php foreach ($terms as $t) { ?>
+		
+		
+		<?php } ?>
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner row w-100 mx-auto">
+    <div class="carousel-item col-md-4 active">
 
-                    if( $query->have_posts() ) : 
-                      while( $query->have_posts() ) : 
-                        $query->the_post(); 
-                        $i++;
-                  ?>
+	<div   data-filtre="<?php $t->name ?>" style="background: url(`<?php the_post_thumbnail(); ?>`) no-repeat center center; background-size: cover">
+            <h4 class="card-title">
+              <a href="<?php the_permalink() ?>">
+                <?php the_title(); ?></a>
+            </h4>
 
-                    <div class="item <?php if ( $i == 1 ) {echo 'active';} ?>">
+            <div class="card">
+              <img class="card-img-top img-fluid" src="
+<?php the_post_thumbnail(); ?>" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="<?php the_permalink() ?>">
+                    <?php the_title(); ?></a>
+                </h4>
+                <p class="card-text">
+                  <p><?php echo get_the_excerpt(); ?></p>
+                </p>
+              </div>
+            </div>
+       
+  <?php endwhile; ?>
+	</div>
+  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+  </div>
+  </div>
+</div>
 
-                      <p><?php the_field('testimonial'); ?></p>
-                      <div class="testimonials-image">
-                          <img class="img-responsive" src="<?php the_field('testimonial_image'); ?>" alt="">
-                      </div>
-                      <h5><?php the_field('testimonial_name'); ?></h5>
-                      <h6><?php the_field('testimonial_occupation'); ?></h6>
-
-                    </div>
-
-                  <?php 
-                    endwhile; 
-                      endif; 
-                        wp_reset_postdata(); 
-                  ?>
-
-                </div>
-
-                <!-- Controls -->
-                <a class="left" href="#carousel-example-generic" role="button" data-slide="prev">
-                  <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-                  <span class="sr-only">Previous</span>
-                </a>
-		</main><!-- #main -->
-	</section><!-- #primary -->
+</div>
+						
+	</main><!-- #main -->
+</section><!-- #primary -->
 
 <?php
 get_footer();

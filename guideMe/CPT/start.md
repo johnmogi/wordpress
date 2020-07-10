@@ -97,3 +97,6 @@ https://www.smashingmagazine.com/2012/11/complete-guide-custom-post-types/
 
 build in plugin:
 https://kinsta.com/blog/wordpress-custom-post-types/
+
+add image support
+https://wordpress.stackexchange.com/questions/6417/query-for-custom-post-type

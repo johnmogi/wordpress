@@ -2,7 +2,9 @@
 
 // Our custom post type function
 function create_posttype() {
- 
+    add_theme_support('post-thumbnails');
+    add_post_type_support( 'items', 'thumbnail' ); 
+
     register_post_type( 'items',
     // CPT Options
         array(
@@ -89,5 +91,6 @@ function custom_post_type() {
         );
     }
 
+    
     add_action( 'init', 'custom_post_type', 0 );
     ?>
