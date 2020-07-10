@@ -1,19 +1,13 @@
+0. cpt base support:
 https://www.wpbeginner.com/wp-tutorials/how-to-create-custom-post-types-in-wordpress/
 
-
-
-/* added support for import via require once for elegance:
- require_once WP_CONTENT_DIR . '/themes/wp-bstrp-child/item_cpt.php'
-
-https://wordpress.stackexchange.com/questions/191646/include-files-in-functions-php
-
-setting custom icon:
+0. setting custom icon:
 https://developer.wordpress.org/resource/dashicons/#testimonial
 
-
-adding custom categories:
+0. adding custom categories:
 https://www.wpbeginner.com/wp-tutorials/how-to-add-categories-to-a-custom-post-type-in-wordpress/
 
+0. sample insert text:
 // Our custom post type function
 function create_posttype() {
  
@@ -34,13 +28,10 @@ function create_posttype() {
     );
 }
 ---------------------/
-
 /*
 * Creating a function to create our CPT
 */
- 
 function custom_post_type() {
- 
 // Set UI labels for Custom Post Type
     $labels = array(
         'name'                => _x( 'Movies', 'Post Type General Name', 'twentytwenty' ),
@@ -57,9 +48,7 @@ function custom_post_type() {
         'not_found'           => __( 'Not Found', 'twentytwenty' ),
         'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwenty' ),
     );
-     
-// Set other options for Custom Post Type
-     
+// Set other options for Custom Post Type  
     $args = array(
         'label'               => __( 'movies', 'twentytwenty' ),
         'description'         => __( 'Movie news and reviews', 'twentytwenty' ),
@@ -86,16 +75,25 @@ function custom_post_type() {
         'capability_type'     => 'post',
         'show_in_rest' => true,
  
-    );
-     
+    );  
     // Registering your Custom Post Type
     register_post_type( 'movies', $args );
- 
 }
- 
 /* Hook into the 'init' action so that the function
 * Containing our post type registration is not 
 * unnecessarily executed. 
 */
- 
 add_action( 'init', 'custom_post_type', 0 );
+
+
+0. [myCode]: /* added support for import via require once for elegance:
+ require_once WP_CONTENT_DIR . '/themes/wp-bstrp-child/item_cpt.php'
+https://wordpress.stackexchange.com/questions/191646/include-files-in-functions-php
+
+do_action(‘wp_enqueue_scripts’, enqueue_parent_styles);
+
+new guide:
+https://www.smashingmagazine.com/2012/11/complete-guide-custom-post-types/
+
+build in plugin:
+https://kinsta.com/blog/wordpress-custom-post-types/

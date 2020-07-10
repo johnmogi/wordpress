@@ -56,12 +56,7 @@ function custom_post_type() {
             'labels'              => $labels,
             // Features this CPT supports in Post Editor
             'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            // You can associate this CPT with a taxonomy or custom taxonomy. 
-            'taxonomies'          => array( 'genres' ),
-            /* A hierarchical CPT is like Pages and can have
-            * Parent and child items. A non-hierarchical CPT
-            * is like Posts.
-            */ 
+            'taxonomies'          => array( 'collections' ),
             'hierarchical'        => false,
             'public'              => true,
             'show_ui'             => true,
@@ -79,14 +74,20 @@ function custom_post_type() {
         );
          
         // Registering your Custom Post Type
-        register_post_type( 'items', $args );
+        register_post_type( 'item', $args );
      
     }
-     
-    /* Hook into the 'init' action so that the function
-    * Containing our post type registration is not 
-    * unnecessarily executed. 
-    */
-     
+    add_action( 'add_meta_boxes', 'item_price_box' );
+    function item_price_box() {
+        add_meta_box( 
+            'item_price_box',
+            __( 'Itme Price', 'myplugin_textdomain' ),
+            'item_price_box_content',
+            'item',
+            'side',
+            'high'
+        );
+    }
+
     add_action( 'init', 'custom_post_type', 0 );
     ?>
