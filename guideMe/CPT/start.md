@@ -1,5 +1,19 @@
 https://www.wpbeginner.com/wp-tutorials/how-to-create-custom-post-types-in-wordpress/
 
+
+
+/* added support for import via require once for elegance:
+ require_once WP_CONTENT_DIR . '/themes/wp-bstrp-child/item_cpt.php'
+
+https://wordpress.stackexchange.com/questions/191646/include-files-in-functions-php
+
+setting custom icon:
+https://developer.wordpress.org/resource/dashicons/#testimonial
+
+
+adding custom categories:
+https://www.wpbeginner.com/wp-tutorials/how-to-add-categories-to-a-custom-post-type-in-wordpress/
+
 // Our custom post type function
 function create_posttype() {
  
@@ -14,7 +28,8 @@ function create_posttype() {
             'has_archive' => true,
             'rewrite' => array('slug' => 'items'),
             'show_in_rest' => true,
- 
+             'menu_icon'           => 'dashicons-cart',
+
         )
     );
 }
