@@ -6,7 +6,10 @@ function enqueue_parent_styles() {
 }
 #do_action(‘wp_enqueue_scripts’, enqueue_parent_styles);
 
- require_once WP_CONTENT_DIR . '/themes/wp-bstrp-child/cpt/product_cpt.php';
+add_filter('use_block_editor_for_post', '__return_false', 10);
+
+
+# require_once WP_CONTENT_DIR . '/themes/wp-bstrp-child/cpt/product_cpt.php';
  require_once WP_CONTENT_DIR . '/themes/wp-bstrp-child/cpt/item_cpt.php';
 
 ?>

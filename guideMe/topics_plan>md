@@ -1,0 +1,15 @@
+dep. build a wp theme from scratch (study)
+dep. move cpt into a sep plugin (study)
+0. upgrade bootstrap viewport by one.
+0. bootstrap cpt carousel without plugin
+0. include php wp files through a shortcode or curl or other method.
+0. gulp or webpack
+0. gatsby
+0. compress html?
+0. schema integration for cpt
+
+0. phpstorm ?
+
+
+--REsoLVED--
+# 0. Sass integration -V vscode live compiler + live sass

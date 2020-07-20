@@ -8,3 +8,5 @@ Template: wp-bootstrap-starter
 Version: 1.0.0 
 Text Domain: wp-bootstrap-child 
 */
+
+@import './scss/main.css'

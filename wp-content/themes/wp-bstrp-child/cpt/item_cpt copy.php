@@ -75,6 +75,9 @@ function custom_post_type() {
      
         );
          
+        // Registering your Custom Post Type
+        register_post_type( 'item', $args );
+     
     }
     add_action( 'add_meta_boxes', 'item_price_box' );
     function item_price_box() {
