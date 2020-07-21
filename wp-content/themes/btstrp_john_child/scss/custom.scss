@@ -1,0 +1,53 @@
+
+/*RTL*/
+.mr-auto, .mx-auto {
+    margin-right: initial !important;
+    margin-left: auto!important;
+} 
+ ul.navbar-nav.mr-auto {
+    text-align: right;
+    direction: rtl;
+}
+.nav-link {
+    display: initial;
+    border-top: 4px solid rgba(0,0,0,0);
+
+}
+a.nav-link:hover {
+    border-top: 4px solid #000!important;
+    transition: all .4s ease-in-out!important;
+}
+
+
+/*MQ*/
+/* needs to expand bp */
+
+@media only screen and (min-width: 1481px){
+    .container {
+        max-width: 1481px;
+    }
+}
+@media only screen and (min-width: 981px){
+    .container {
+        max-width: 1080px;
+    }
+    .container-fluid{
+        padding-right: 0;
+        padding-left: 0;
+    }
+    #logo {
+
+        max-width: 150px;
+      
+    }  
+
+
+}
+
+
+@media only screen and (min-width: 681px){
+.navbar-toggler {
+    float: right;
+    margin-top: 25px;
+}
+}

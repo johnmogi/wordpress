@@ -1,0 +1,12 @@
+/* 
+Theme Name: wp-bootstrap-Child 
+Theme URL: http://johnmogi.com
+Description: wp-bootstrap Child 
+Theme Author: John mogi
+Author URL: http://johnmogi.com
+Template: wp-bootstrap-starter
+Version: 1.0.0 
+Text Domain: wp-bootstrap-child 
+*/
+
+@import './scss/main.css'

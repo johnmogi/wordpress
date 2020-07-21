@@ -1,0 +1,13 @@
+/* 
+Theme Name: btstrp_john-Child  
+Theme URL: http://johnmogi.com
+Description: btstrp_john Child 
+Theme Author: John mogi
+Author URL: http://johnmogi.com
+Template: btstrp_john
+Version: 1.0.0 
+Text Domain: btstrp_john-Child 
+*/
+
+@import './scss/main.css';
+@import './bootstrap-4.5.0-dist/css/bootstrap.min.css';

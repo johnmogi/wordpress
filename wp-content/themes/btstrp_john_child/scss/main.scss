@@ -1,0 +1,100 @@
+@import './custom.scss';
+
+
+/*UI*/
+body{
+    text-align: right;
+    direction:rtl;
+    font: 14px 'alef',sans-serif;
+}
+#logo {
+    max-height: 70%;
+    max-width: 200px; 
+} 
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    max-height: 100px;
+}
+header.smaller {
+    max-height: 60px;
+    transition-timing-function: ease-in;
+    transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
+  
+    transition-timing-function: ease-out;
+    transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+}
+ 
+header.smaller #logo {
+    max-width: 110px;
+    transition-timing-function: ease-in;
+    transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
+  
+    transition-timing-function: ease-out;
+    transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+}
+
+
+.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+}
+.navbar, main {
+    background-color: #e8e8e8;
+}
+.navbar{
+    box-shadow: 0 0 7px rgba(0,0,0,.1)!important;
+}
+a.nav-link {
+    font-size: 14px;
+    font-weight: 100;
+    color: #000 !important;
+    font: 14px 'alef',sans-serif;
+}
+.nav-item a {
+    margin: 0;
+}
+.hero, .home main {
+    min-height: 80vh;
+    height: 612px;
+    background-image: url(./images/header-back.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#parallaxHero {
+    margin: 10vh auto 0;
+    display: block;
+}
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+footer p{
+    color:#fff;
+    padding: 20px;
+}
+.contact{
+    min-height: 100vh;
+    background: url(./images/contact.jpg) no-repeat;
+    margin: 0 auto;
+    padding: 12vh;
+
+}
+.contactForm{
+    float:right;
+}
+
+.white-box{
+    background:#fff;
+}
+.white-box hr{
+    width: 70px; float: right; margin-bottom: 25px;
+}
+.white-box p{
+    padding: 5px 10px;
+    clear: both;
+
+}
