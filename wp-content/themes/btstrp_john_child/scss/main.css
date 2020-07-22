@@ -1,53 +1,9 @@
-/*RTL*/
-.mr-auto, .mx-auto {
-  margin-right: initial !important;
-  margin-left: auto !important;
-}
-
-ul.navbar-nav.mr-auto {
-  text-align: right;
-  direction: rtl;
-}
-
-.nav-link {
-  display: initial;
-  border-top: 4px solid rgba(0, 0, 0, 0);
-}
-
-a.nav-link:hover {
-  border-top: 4px solid #000 !important;
-  transition: all 0.4s ease-in-out !important;
-}
-
-/*MQ*/
-/* needs to expand bp */
-@media only screen and (min-width: 1481px) {
-  .container {
-    max-width: 1481px;
-  }
-}
-
-@media only screen and (min-width: 981px) {
-  .container {
-    max-width: 1080px;
-  }
-  #logo {
-    max-width: 150px;
-  }
-}
-
-@media only screen and (min-width: 681px) {
-  .navbar-toggler {
-    float: right;
-    margin-top: 25px;
-  }
-}
-
 /*UI*/
 body {
   text-align: right;
   direction: rtl;
   font: 14px 'alef',sans-serif;
+  overflow-x: hidden;
 }
 
 #logo {
@@ -55,7 +11,7 @@ body {
   max-width: 200px;
 }
 
-header {
+#masthead {
   position: sticky;
   top: 0;
   z-index: 15;
@@ -91,29 +47,33 @@ header.smaller #logo {
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.1) !important;
 }
 
-a.nav-link {
+a.nav-link, .navbar a {
   font-size: 14px;
   font-weight: 100;
   color: #000 !important;
   font: 14px 'alef',sans-serif;
 }
 
-.nav-item a {
-  margin: 0;
-}
-
 .hero, .home main {
   min-height: 80vh;
-  height: 612px;
-  background-image: url(./images/header-back.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
+  max-height: 710px;
   background-size: cover;
+  overflow: hidden;
+}
+
+.post-thumbnail {
+  position: absolute;
+  top: 0;
 }
 
 #parallaxHero {
   margin: 10vh auto 0;
   display: block;
+  z-index: 5;
+  position: sticky;
+  top: 0;
 }
 
 h2 {

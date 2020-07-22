@@ -1,3 +1,9 @@
+.container-fluid {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+}
+
 /*RTL*/
 .mr-auto, .mx-auto {
   margin-right: initial !important;
@@ -30,10 +36,6 @@ a.nav-link:hover {
 @media only screen and (min-width: 981px) {
   .container {
     max-width: 1080px;
-  }
-  .container-fluid {
-    padding-right: 0;
-    padding-left: 0;
   }
   #logo {
     max-width: 150px;

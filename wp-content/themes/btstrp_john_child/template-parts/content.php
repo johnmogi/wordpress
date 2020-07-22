@@ -29,7 +29,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php btstrp_john_post_thumbnail(); ?>
+	<!-- php btstrp_john_post_thumbnail(); -- >
 
 	<div class="entry-content">
 		<?php

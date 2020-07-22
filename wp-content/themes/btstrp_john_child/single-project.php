@@ -10,8 +10,9 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<section id="primary" class="container-fluid hero jumbotron" style="background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
 
+<div class="container">
 		<?php
 		while ( have_posts() ) :
 			the_post();
@@ -25,14 +26,12 @@ get_header();
 				)
 			);
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
 
 		endwhile; // End of the loop.
 		?>
+</div>
 
+	</section>
 	</main><!-- #main -->
 
 <?php
