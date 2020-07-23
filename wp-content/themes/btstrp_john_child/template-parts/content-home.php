@@ -19,22 +19,7 @@
 
 <section class="container-fluid">
 	<div class="container">
-	<?php
-echo get_post_meta( $post->ID, '_john_meta_box_text_field', true);
-echo '<br/>';
-echo get_post_meta( $post->ID, '_john_meta_box_textarea_field', true);
-echo '<br/>';
-$image1 = get_post_meta( $post->ID, 'john_meta_box_imagefield', true);
-
-?>
-<img alt="sunset" src="<?php echo $image1 ?>" height="150" width="450" border="0" />
-
-<?php
-echo get_post_meta( $post->ID, '_john_meta_box_text_field2', true);
-echo '<br/>';
-echo get_post_meta( $post->ID, '_john_meta_box_textarea_field2', true);
-?>
-</div>
+	
 </section>
 
 	<div class="entry-content">

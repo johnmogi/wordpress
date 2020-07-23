@@ -19,67 +19,73 @@ get_header();
       </div>
 
       <div class='container-uid'>
+<?php
+  if ( ! function_exists( 'display_all_products_from_all_categories' ) ) {
 
-        <?php
-        query_posts(array(
-          'post_type' => 'items',
-          'showposts' => 10
-        ));
-        ?>
+    function display_all_products_from_all_categories() {
 
-        <?php while (have_posts()) : the_post();
-        ?>
-          <?php foreach ($terms as $t) {
-          ?>
+        // Get all the categories for Custom Post Type Product
+        $args = array( 
+            'post_type' => 'project', 
+            'orderby' => 'id', 
+            'order' => 'ASC' 
+        );
 
-          <?php }
-          ?>
-          <div id='myCarousel' class='carousel slide' data-ride='carousel'>
-            <div class='carousel-inner row w-100 mx-auto'>
-              <div class='carousel-item col-md-4 active'>
+        $categories = get_categories( $args );
 
-                <h4 class='card-title'>
-                  <a href='<?php the_permalink() ?>'>
-                    <?php the_title();
-                    ?></a>
-                </h4>
+        foreach ($categories as $category) {
+            ?>
+            <div class="<?php echo $category->slug; ?>">
+                <!-- Get the category title -->
+                <h3 class="title"><?php echo $category->name; ?></h3>
 
-                <div class='card'>
-                  <?php
-                  if (has_post_thumbnail()) {
-                    the_post_thumbnail();
-                  }
-                  ?>
-
-                  <div class='card-body'>
-                    <h4 class='card-title'>
-                      <a href='<?php the_permalink() ?>'>
-                        <?php the_title();
-                        ?></a>
-                    </h4>
-                    <p class='card-text'>
-                      <p><?php echo get_the_excerpt();
-                          ?></p>
-                    </p>
-                  </div>
+                <!-- Get the category description -->
+                <div class="description">
+                    <p><?php echo category_description( get_category_by_slug($category->slug)->term_id ); ?></p>
                 </div>
 
-              <?php endwhile;
-              ?>
-              </div>
-              <a class='carousel-control-prev' href='#myCarousel' role='button' data-slide='prev'>
-                <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                <span class='sr-only'>Previous</span>
-              </a>
-              <a class='carousel-control-next' href='#myCarousel' role='button' data-slide='next'>
-                <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                <span class='sr-only'>Next</span>
-              </a>
-            </div>
-          </div>
-      </div>
+                <ul class="mhc-product-grid">
 
-    </div>
+                    <?php
+                        // Get all the products of each specific category
+                        $product_args = array(
+                            'post_type'     => 'project',
+                            'orderby'      => 'id',
+                            'order'         => 'ASC',
+                            'post_status'   => 'publish',
+                            'category_name' => $category->slug //passing the slug of the current category
+                        );
+
+                        $product_list = new WP_Query ( $product_args );
+
+                    ?>
+
+                    <?php while ( $product_list -> have_posts() ) : $product_list -> the_post(); ?>
+
+                        <li class="product <?php the_field( 'product_flavor' ); ?>">
+                            <a href="<?php the_permalink(); ?>" class="product-link">
+
+                                <!-- if the post has an image, show it -->
+                                <?php if( has_post_thumbnail() ) : ?>
+                                    <?php the_post_thumbnail( 'full', array( 'class' => 'img', 'alt' => get_the_title() ) ); ?>
+                                <?php endif; ?>
+
+                                <!-- custom fields: product_flavor, product_description ... -->
+                                <h3 class="title <?php the_title(); ?></h3>
+                                <p class="description"><?php get_the_excerpt(); ?></p>
+                            </a>
+                        </li>
+
+                    <?php endwhile; wp_reset_query(); ?>
+                </ul>
+
+            </div>
+            <?php
+        }
+    }
+}
+
+  ?>
 
   </main><!-- #main -->
 </section><!-- #primary -->

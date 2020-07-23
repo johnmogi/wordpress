@@ -30,6 +30,10 @@ function aw_include_script() {
 }
 add_action( 'admin_enqueue_scripts', 'aw_include_script' );
 
+// get rid of a jquery err
+wp_deregister_script('hoverIntent');
+
+
 // //build custom meta box, didn't find a way to require include here
 // add_action( 'add_meta_boxes', 'cyb_add_metaboxes', 10, 2 ); 
 // function cyb_add_metaboxes( $post_type, $post ) {

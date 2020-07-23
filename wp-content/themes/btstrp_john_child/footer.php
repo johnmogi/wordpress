@@ -11,10 +11,18 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer text-center">
+
+<div id="toTop" class="text-center">
+<a href="#primary">
+	<img id="skew" src="<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png"/>
+	חזרה לראש העמוד
+</a>
+</div>
+
+	<footer id="colophon" class="site-footer text-center bg-dark text-light">
 	
 	Studio Lavan &copy; <?php echo date("Y"); ?>
-
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/scroll.js" />
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
