@@ -37,29 +37,22 @@ body #primary .container{
 #logo {
     max-height: 70%;
     max-width: 200px; 
-    transition-timing-function: ease-in;
-    transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
-  
-    transition-timing-function: ease-out;
-    transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+
 } 
 
 #masthead {
-    position: fixed;
+  position: fixed; 
     top: 0;
     z-index: 15;
     max-height: 100px;
-}
-
- 
-header.smaller #logo {
-    max-width: 110px;
     transition-timing-function: ease-in;
     transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
   
     transition-timing-function: ease-out;
     transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
 }
+
+ 
 
 
 .container-fluid {
@@ -72,18 +65,26 @@ header.smaller #logo {
 .navbar{
     box-shadow: 0 0 7px rgba(0,0,0,.1)!important;
 }
-a.nav-link, .navbar a {
+#primary-menu li{
+    display: inline-block;
+    padding-right: 22px;
+    font-size: 14px;
+}
+#primary-menu li a {
     font-size: 14px;
     font-weight: 100;
     color: #000 !important;
     font: 14px 'alef',sans-serif;
-    padding-right: 22px;
-    text-decoration:none;
+    padding: 8px;
+    text-decoration: none !important;
+    line-height: 40px;
+    font-weight: 100!important;
     border-top: 4px solid rgba(0,0,0,0)!important;
 }
 
-.navbar a:hover {
-    border-top: 4px solid #000 !important;
+#primary-menu li a:hover {
+    border-top: 4px solid #000!important;
+    transition: all .4s ease-in-out!important;
 }
 .hero.jumbotron{
     min-height: 700px;
@@ -94,10 +95,10 @@ a.nav-link, .navbar a {
 }
 
 #parallaxHero {
-    margin: 10vh auto 0;
+    margin: 30vh auto 0;
     display: block;
         z-index: 5;
-    position: sticky;
+
     top: 0;
 }
 h2 {
@@ -152,7 +153,16 @@ margin-right: auto;
 .pr-image{
     margin:33px 0;
 }
-
+.font_2.text-center {
+    padding: 50px;
+    font-size: 22px;
+}
+#wpadminbar {
+    padding-bottom: 35px;
+    z-index: 20;
+    position: fixed;
+    top: 0;
+}
 @media only screen and (min-width: 681px){
     .single-project #primary .container{
     padding-top: 69px;

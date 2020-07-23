@@ -12,18 +12,12 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-
-
-
-
-<?php
+    <!-- Home page thumbnail: -->
+    <?php
 while ( have_posts() ) :
 	the_post();
-	
+
 	get_template_part( 'template-parts/content', 'home' );
-	
-	
-	
 endwhile; // End of the loop.
 ?>
 
@@ -31,57 +25,47 @@ endwhile; // End of the loop.
 
 <h2 class="font_2 text-center">פרויקטים נבחרים</h2>
 
+<?php
+$puff_arg = array(
+        'post_type' => 'project',
+        'posts_per_page' => 10,
+    );
+
+$puff = new WP_Query ( $puff_arg );
+if ( $puff->have_posts() ) 
+{
+    switch ($puff->found_posts) 
+    {
+        case '2':
+            $colClass = 'col-6';
+            break;
+
+        case '3':
+            $colClass = 'col-4';
+            break;
+
+        default:
+            $colClass = 'col-12';
+    }
+
+    while ( $puff->have_posts() ) {
+            $puff->the_post();
+            $heading = get_post_meta($post->ID, 'title'); 
+            $text = get_post_meta($post->ID, 'content');
+            ?>
+            <div class="<?php echo $colClass; ?>">
+               <div>
+                    <h3><?php echo $heading[0] ? $heading[0]: ''; ?></h3>
+                    <p><?php echo $text[0] ? $text[0]: ''; ?></p>                       
+                </div>
+            </div>  
+           <?php      
+    }
+}
+wp_reset_postdata();
+?>
 
 
-
-		<?php
-
-
-	
-			// Get all the categories for Custom Post Type project
-			$args = array( 
-				'post_type' => 'project', 
-				'orderby' => 'id', 
-				'order' => 'ASC' 
-			);
-	?>
-	
-					<ul class="mhc-project-grid">
-	
-						<?php
-							// Get all the projects of each specific category
-							$project_args = array(
-								'post_type'     => 'project',
-								'orderby'      => 'id',
-								'order'         => 'ASC',
-								'post_status'   => 'publish',
-								'category_name' => $category->slug //passing the slug of the current category
-							);
-	
-							$project_list = new WP_Query ( $project_args );
-	
-						?>
-	
-						<?php while ( $project_list -> have_posts() ) : $project_list -> the_post(); ?>
-	
-							<li class="project">
-								<a href="<?php the_permalink(); ?>" class="project-link">
-	
-									<!-- if the post has an image, show it -->
-									<?php if( has_post_thumbnail() ) : ?>
-										<?php the_post_thumbnail( 'full', array( 'class' => 'img', 'alt' => get_the_title() ) ); ?>
-									<?php endif; ?>
-	
-									<!-- custom fields: project_flavor, project_description ... -->
-									<h3 class="title"><?php the_title(); ?></h3>
-									<p class="description">project_description</p>
-								</a>
-							</li>
-	
-						<?php endwhile; wp_reset_query(); ?>
-					</ul>
-	
-	
 </div>
 
 <?php
