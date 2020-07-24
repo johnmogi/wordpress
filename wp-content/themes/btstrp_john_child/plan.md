@@ -7,3 +7,6 @@ proj[0]
 0. check jquery
 
 0. connect scrolling top (try from scratch)
+
+this is great tut for custom fields:
+https://perishablepress.com/wordpress-custom-fields-tips-tricks/
