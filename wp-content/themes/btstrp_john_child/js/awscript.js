@@ -1,4 +1,26 @@
 jQuery(function($){
+
+    $('body').on('click', '.john_meta_box_imagefield_button0', function(e){
+        e.preventDefault();
+
+        var button = $(this),
+        aw_uploader = wp.media({
+            title: 'Custom image',
+            library : {
+                uploadedTo : wp.media.view.settings.post.id,
+                type : 'image'
+            },
+            button: {
+                text: 'Use this image'
+            },
+            multiple: false
+        }).on('select', function() {
+            var attachment = aw_uploader.state().get('selection').first().toJSON();
+            $('#john_meta_box_imagefield0').val(attachment.url);
+        })
+        .open();
+    });
+
     $('body').on('click', '.john_meta_box_imagefield_button', function(e){
         e.preventDefault();
   

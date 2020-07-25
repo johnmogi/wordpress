@@ -9,8 +9,17 @@
 
 get_header();
 ?>
-
-<section id = 'primary' class = 'container-fluid hero jumbotron' style = "background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
+<?php $customCover = get_post_meta( $post->ID, 'john_meta_box_customCover', true );
+var_dump( $customCover);
+?>
+<?php if (!$customCover) { ?>
+    <section id = 'primary' class = 'container-fluid hero jumbotron' style = "background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
+        <?php
+}else{
+    ?>
+    <section id = 'primary' class = 'container-fluid hero jumbotron' style = "background-image: url('<?php $customCover ?>');">
+    <?php } ?>
+    
 
 <div class = 'container space-top'>
 
@@ -36,8 +45,9 @@ endwhile;
 <p>
 חזרה לפרוייקטים
  </p>
- <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png" alt="back-to-projects">
- </a>
+ 
+     <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png" alt="back-to-projects">
+    </a>
 </div>
 </section>
 <div class="spacer"></div>

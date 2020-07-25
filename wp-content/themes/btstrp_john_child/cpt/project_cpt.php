@@ -9,6 +9,7 @@ function create_posttype() {
     // CPT Options
         array(
             'labels' => array(
+                'hierarchical' => true,
                 'name' => __( 'Projects' ),
                 'singular_name' => __( 'Project' ),
                 'add_new'            => _x( 'Add New', 'project' ),
@@ -20,7 +21,17 @@ function create_posttype() {
                 'search_items'       => __( 'Search Projects' ),
                 'not_found'          => __( 'No projects found' ),
                 'not_found_in_trash' => __( 'No projects found in the Trash' ), 
+                'public' => true,
+                'show_ui' => true,
+                'show_in_menu' => true,
+                'show_in_nav_menus' => true,
+                'publicly_queryable' => true,
+                'exclude_from_search' => false,
+                'has_archive' => true,
+                'query_var' => true,
+                'can_export' => true
             ),
+            'supports' => array( 'title', 'thumbnail', 'excerpt', 'page-attributes', 'revisions', 'editor' ),
             'public' => true,
             'has_archive' => true,
             'rewrite' => array('slug' => 'project'),
@@ -53,7 +64,8 @@ function john_meta_box_add_multiple_fields(){
     global $post;
  
     // Get Value of Fields From Database
-   
+    
+    $john_meta_box_customCover = get_post_meta( $post->ID, 'john_meta_box_customCover', true);
     $john_meta_box_imagefield = get_post_meta( $post->ID, 'john_meta_box_imagefield', true);
     $john_meta_box_imagefield1 = get_post_meta( $post->ID, 'john_meta_box_imagefield1', true);
     $john_meta_box_imagefield2 = get_post_meta( $post->ID, 'john_meta_box_imagefield2', true);
@@ -66,6 +78,14 @@ function john_meta_box_add_multiple_fields(){
     <div class="label">תמונות פרוייקט</div>
     <div class="fields">
     <table>
+    <tr><h4>תמונה ראשית חליפית גדולה לעמוד הפרוייקט</h4></tr>
+        <tr>
+        <td><a href="#" class="john_meta_box_imagefield_button0 button button-secondary"><?php _e('Upload Image'); ?></a></td>
+            <td><input type="text" name="john_meta_box_customCover" id="john_meta_box_imagefield0" value="<?php echo $john_meta_box_customCover; ?>" style="width:500px;" /></td>
+            <td><img src ="<?php echo $john_meta_box_customCover; ?>" width=150 /></td>
+        </tr>
+    
+
         <tr>
         <td><a href="#" class="john_meta_box_imagefield_button button button-secondary"><?php _e('Upload Image'); ?></a></td>
             <td><input type="text" name="john_meta_box_imagefield" id="john_meta_box_imagefield" value="<?php echo $john_meta_box_imagefield; ?>" style="width:500px;" /></td>
@@ -102,6 +122,11 @@ function john_meta_box_add_multiple_fields(){
 function john_meta_box_save_multiple_fields_metabox(){
  
     global $post;
+    
+
+    if(isset($_POST["_john_meta_box_customCover"])) :
+        update_post_meta($post->ID, '_john_meta_box_customCover', $_POST["_john_meta_box_customCover"]);
+        endif;
 
     if(isset($_POST["_john_meta_box_imagefield"])) :
         update_post_meta($post->ID, '_john_meta_box_imagefield', $_POST["_john_meta_box_imagefield"]);
@@ -120,6 +145,17 @@ function john_meta_box_save_multiple_fields_metabox(){
                     update_post_meta($post->ID, '_john_meta_box_imagefield4', $_POST["_john_meta_box_imagefield4"]);
                     endif;
 }
+
+
+function aw_save_customCover($post_id){
+    if (array_key_exists('john_meta_box_customCover', $_POST)) {
+        update_post_meta(
+            $post_id,
+            'john_meta_box_customCover',
+            $_POST['john_meta_box_customCover']
+        );
+    }
+   }
  
 function aw_save_postdata($post_id){
  if (array_key_exists('john_meta_box_imagefield', $_POST)) {
@@ -168,6 +204,8 @@ function aw_save_postdata2($post_id){
         );
     }
    }
+   
+add_action('save_post', 'aw_save_customCover');
 add_action('save_post', 'aw_save_postdata');
 add_action('save_post', 'aw_save_postdata2');
 add_action('save_post', 'aw_save_postdata3');
@@ -175,3 +213,15 @@ add_action('save_post', 'aw_save_postdata4');
 add_action('save_post', 'aw_save_postdata5');
 
 add_action('save_post', 'john_meta_box_save_multiple_fields_metabox');
+add_action( 'init', 'my_add_excerpts_to_pages' );
+function my_add_excerpts_to_pages() {
+     add_post_type_support( 'project', 'excerpt' ); 
+}
+
+function create_projects_tax(){
+    register_taxonomy('field', 'project', array(
+       'hierarchical' => true,
+       'label' => 'Fields'
+    ));
+}
+add_action('init', 'create_project_tax');
