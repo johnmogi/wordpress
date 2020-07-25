@@ -10,3 +10,8 @@ proj[0]
 
 this is great tut for custom fields:
 https://perishablepress.com/wordpress-custom-fields-tips-tricks/
+
+what's in a post: 
+https://codex.wordpress.org/Function_Reference/$post
+
+ var_dump( $title, $excerpt );

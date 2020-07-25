@@ -33,7 +33,7 @@
 
 <header id = 'masthead' class = 'site-header container-fluid'>
 
-<nav class = 'navbar navbar-expand-lg navbar-light bg-light my-2 my-lg-0' role = 'navigation'>
+<nav class = 'navbar navbar-expand-lg  my-2 my-lg-0' role = 'navigation'>
 <div class = 'container'>
 
 

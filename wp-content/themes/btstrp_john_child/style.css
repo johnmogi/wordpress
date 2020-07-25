@@ -37,6 +37,7 @@ body #primary .container{
 #logo {
     max-height: 70%;
     max-width: 200px; 
+    transition-timing-function: ease, step-start, cubic-bezier(.99, 1.01, 1, -0.68);
 
 } 
 
@@ -45,11 +46,8 @@ body #primary .container{
     top: 0;
     z-index: 15;
     max-height: 100px;
-    transition-timing-function: ease-in;
-    transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
-  
-    transition-timing-function: ease-out;
-    transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+
+    transition-timing-function: ease, step-start, cubic-bezier(.99, 1.01, 1, -0.68);
 }
 
  
@@ -162,6 +160,32 @@ margin-right: auto;
     z-index: 20;
     position: fixed;
     top: 0;
+}
+.homeImage {
+    display: block;
+    width: 100%;
+}
+.homeCard{
+    background: #fff;
+    padding-top: 38px;
+padding-right: 70px;
+padding-bottom: 35px;
+padding-left: 60px;
+}
+.homeCard hr{
+width: 70px;
+float: right;
+display:block;
+margin-bottom: 25px;
+}
+/* .box{
+transform: translateX(-26px) translateY(100px);
+z-index: 1;
+position: relative;
+} */
+.box-title{
+font-size:14px;
+font-weight:400;
 }
 @media only screen and (min-width: 681px){
     .single-project #primary .container{

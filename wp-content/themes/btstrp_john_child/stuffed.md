@@ -180,3 +180,8 @@ function aw_save_postdata($post_id)
 add_action('save_post', 'aw_save_postdata');
 
 add_action('save_post', 'john_meta_box_save_multiple_fields_metabox');
+
+
+// debug: 
+print_r($thumb);
+print_r($fetchQuery);

@@ -25,6 +25,10 @@ a.nav-link:hover {
   transition: all 0.4s ease-in-out !important;
 }
 
+.navbar {
+  background-color: #e8e8e8 !important;
+}
+
 /*MQ*/
 /* needs to expand bp */
 @media only screen and (min-width: 1481px) {

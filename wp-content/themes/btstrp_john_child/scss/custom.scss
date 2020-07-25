@@ -5,7 +5,6 @@
         padding-left: 0 !important;
         margin:0 !important;
     }
-    
 /*RTL*/
 .mr-auto, .mx-auto {
     margin-right: initial !important;
@@ -24,7 +23,9 @@ a.nav-link:hover {
     border-top: 4px solid #000!important;
     transition: all .4s ease-in-out!important;
 }
-
+.navbar {
+    background-color: #e8e8e8 !important;
+}
 
 /*MQ*/
 /* needs to expand bp */
