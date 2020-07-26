@@ -10,7 +10,7 @@
 get_header();
 ?>
 <?php $customCover = get_post_meta( $post->ID, 'john_meta_box_customCover', true );
-var_dump( $customCover);
+# var_dump( $customCover);
 ?>
 <?php if (!$customCover) { ?>
     <section id = 'primary' class = 'container-fluid hero jumbotron' style = "background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">

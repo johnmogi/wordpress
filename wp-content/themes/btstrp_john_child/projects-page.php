@@ -10,51 +10,38 @@
 
 get_header();
 ?>
-	<?php
-        query_posts(array(
-          'post_type' => 'project',
-          'showposts' => 10
-        ));
-        ?>
- 
-<main id="primary" class="site-main">
 
-<?php while (have_posts()) : the_post();
-        ?>
-		
+<main id = 'primary' class = 'container-fluid hero jumbotron' style = "background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
 
-		<div class='card'>
-                <h4 class='card-title'>
-                  <a href='<?php the_permalink() ?>'>
-                    <?php the_title();
-                    ?></a>
-                </h4>
 
-          
-                  <?php
-                  if (has_post_thumbnail()) {
-                    the_post_thumbnail();
-                  }
-                  ?>
 
-                      <a href='<?php the_permalink() ?>'>
-                        <?php the_title();
-                        ?></a>
-                 
-                    <p class='card-text'>
-                      <p><?php echo get_the_excerpt();
-                          ?></p>
-                    </p>
-               
+<div class="spacer"></div>
 
-					<?php endwhile;
-              ?>
+<div class="main-projects container mx-auto bg-light">
+
+<header class="entry-header">
+		<?php the_title( '<h1 class="entry-title text-center">', '</h1>' ); ?>
+	</header>
+<div class="row">
+<?php
+
+
+global $post;
+$posts = get_posts( array( 'post_type' => 'project',  'posts_per_page'=>6 ) );
+if( $posts ):
+   foreach( $posts as $post ) :   
+    setup_postdata($post); ?>
+        <div class = 'card project-card col-6' style = "background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
+
+    <p class="project-name text-center"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p></div>
+   <?php endforeach; 
+wp_reset_postdata(); 
+endif; ?>
+</div>
 </div>
 
-
-
+</div>
 </main>
-
 
 <?php
 

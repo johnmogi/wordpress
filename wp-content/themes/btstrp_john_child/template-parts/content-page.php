@@ -8,13 +8,15 @@
  */
 
 ?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
 
-	<?php btstrp_john_post_thumbnail(); ?>
+<main id = 'primary' class = 'container-fluid hero jumbotron' style = "background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
+
+<!-- 
+	<header class="entry-header">
+		<php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	</header>.entry-header -->
+
 
 	<div class="entry-content">
 		<?php
