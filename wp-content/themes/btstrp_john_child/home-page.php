@@ -9,16 +9,13 @@
 get_header();
 ?>
 
+
 <main id = 'primary' class = 'site-main'>
 <!-- Home page thumbnail: -->
-<?php
-while ( have_posts() ) :
-the_post();
 
-get_template_part( 'template-parts/content', 'home' );
-endwhile;
-// End of the loop.
-?>
+<section class="container-fluid hero jumbotron" style="background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
+	<img id="parallaxHero" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt="סטודיו לבן | עיצוב ומיתוג קירות" />
+	</section>
 
 </main><!-- #main -->
 
@@ -135,6 +132,7 @@ echo '<p>' .$excerpt[4] . '</p>';?>
 </section>
 
 <section class="full-size row ">
+<img src='<?php echo $thumb[5]; ?>' alt='<?php echo $title[5]; ?>' width='250' class='homeImage box' />
 
     <div class="homeCard box-6 col-8">
         <?php echo '<h4 class="box-title">' . $title[5] . '</h4> <hr/>';
@@ -145,10 +143,18 @@ echo '<p>' .$excerpt[5] . '</p>';?>
         </a>
     </div>
 
-    <img src='<?php echo $thumb[5]; ?>' alt='<?php echo $title[5]; ?>' width='250' class='homeImage box col-4' />
 </section>
 
 </div><!-- main-projects -->
+
+<?php
+while ( have_posts() ) :
+the_post();
+
+get_template_part( 'template-parts/content', 'home' );
+endwhile;
+// End of the loop.
+?>
 
 <?php
 

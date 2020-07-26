@@ -17,6 +17,7 @@
 		<php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header>.entry-header -->
 
+	<?php echo get_post_meta($post->ID, 'about_meta_box_image1', true); ?>
 
 	<div class="entry-content">
 		<?php
