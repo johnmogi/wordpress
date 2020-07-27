@@ -18,8 +18,9 @@
 	</header>.entry-header -->
 
 	<?php echo get_post_meta($post->ID, 'about_meta_box_image1', true); ?>
-
 	<div class="entry-content">
+		<div class="spacer"></div>
+		<div class="col-4 bg-light ">
 		<?php
 		the_content();
 
@@ -30,6 +31,7 @@
 			)
 		);
 		?>
+		</div>
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>

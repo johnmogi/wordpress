@@ -24,8 +24,12 @@ $imageHome = get_post_meta( $post->ID, 'john_meta_box_homeImage', true );
 <div class="bg-light col-3 homebox-contact">
 <?php
 the_content();
-
+//calling contact form:
+require_once( get_stylesheet_directory() . '/page-contact-us.php' );
 ?>
+
+
+
 </div>
 </div><!-- .entry-content -->
 

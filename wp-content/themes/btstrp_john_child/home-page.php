@@ -1,3 +1,6 @@
+<?php require_once( get_stylesheet_directory() . '/form-valid.php' ); ?>
+
+
 <?php
 /**
 * Template Name: Home Page
@@ -5,6 +8,7 @@
 *
 * @package btstrp_john
 */
+
 
 get_header();
 ?>

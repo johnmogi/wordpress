@@ -54,7 +54,7 @@ wp_nav_menu( array(
 ) );
 ?>
 
-<a class = 'navbar-brand px-md-5' href = '<?php get_site_url ?>'><img id = 'logo' src = '<?php echo get_stylesheet_directory_uri(); ?>/images/logo__sm.png' alt = 'סטודיו לבן | עיצוב ומיתוג קירות' />
+<a class = 'navbar-brand px-md-5' href = '<?php echo home_url(); ?>'><img id = 'logo' src = '<?php echo get_stylesheet_directory_uri(); ?>/images/logo__sm.png' alt = 'סטודיו לבן | עיצוב ומיתוג קירות' />
 </a>
 </div>
 </nav>
