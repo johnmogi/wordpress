@@ -17,11 +17,11 @@ $imageHome = get_post_meta( $post->ID, 'john_meta_box_homeImage', true );
 <article id = 'post-<?php the_ID(); ?>' <?php post_class();
 ?>>
 
-<section class = 'container-fluid'>
-<div class = 'container'>
+<section class = 'container-fluid bg-white'>
 
-<div id="contact" class = 'entry-content' style ="background-image: url('<?php echo get_post_meta($post->ID, 'john_meta_box_customCover', true); ?>');">
-<div class="bg-light col-3 homebox-contact">
+<div id="contact" class = 'container entry-content' style ="background-image: url('<?php echo get_post_meta($post->ID, 'john_meta_box_customCover', true); ?>');">
+<div class="spacersm"></div>
+<div class="card col-4 homebox-contact">
 <?php
 the_content();
 //calling contact form:
@@ -30,7 +30,6 @@ require_once( get_stylesheet_directory() . '/page-contact-us.php' );
 
 
 
-</div>
 </div><!-- .entry-content -->
 
 <?php if ( get_edit_post_link() ) : ?>

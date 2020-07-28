@@ -16,13 +16,13 @@ get_header();
 
 
 <div class="spacer"></div>
-
+<div class="container mx-auto bg-light projects-heading">
+<?php the_title( '<h1 class="entry-header font_2 text-center">', '</h1>' ); ?>
+</div>
+<section class="container-fluid grey">
 <div class="main-projects container mx-auto bg-light">
-
-<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title text-center">', '</h1>' ); ?>
-	</header>
-<div class="row">
+    <div id="stage">
+<div class="row bg-light">
 <?php
 
 
@@ -31,17 +31,22 @@ $posts = get_posts( array( 'post_type' => 'project',  'posts_per_page'=>6 ) );
 if( $posts ):
    foreach( $posts as $post ) :   
     setup_postdata($post); ?>
-        <div class = 'card project-card col-6' style = "background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
+<div class="col-6 px-3 card-bg" >
+    <div class = 'project-card text-center' style = "height:250px;background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
+        <span class="project-name "><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span>
+        </div>
+    </div>
 
-    <p class="project-name text-center"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p></div>
+
    <?php endforeach; 
 wp_reset_postdata(); 
 endif; ?>
 </div>
 </div>
+</div><!--grey -->
 
-</div>
 </main>
+
 
 <?php
 

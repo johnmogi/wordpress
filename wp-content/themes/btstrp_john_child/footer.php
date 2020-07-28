@@ -11,18 +11,20 @@
 
 ?>
 
-
+<div class="spacersm"></div>
+<a href="#primary" id="top">
 <div id="toTop" class="text-center">
-<a href="#primary">
 	<img id="skew" src="<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png"/>
 	חזרה לראש העמוד
-</a>
 </div>
-
-	<footer id="colophon" class="site-footer text-center bg-dark text-light">
+</a>
+<div class="spacersm"></div>
+<footer id="colophon" class="site-footer text-center bg-dark text-light">
 	
 	Studio Lavan &copy; <?php echo date("Y"); ?>
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/scroll.js" />
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/contact.js" ></script>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/scroll.js" ></script>
+
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

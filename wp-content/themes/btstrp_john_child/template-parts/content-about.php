@@ -10,17 +10,19 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-<main id = 'primary' class = 'container-fluid hero jumbotron' style = "background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
-
-<!-- 
-	<header class="entry-header">
-		<php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header>.entry-header -->
+<main id = 'primary' class = 'container-fluid hero' style = "background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
 
 	<?php echo get_post_meta($post->ID, 'about_meta_box_image1', true); ?>
 	<div class="entry-content">
 		<div class="spacer"></div>
-		<div class="col-4 bg-light headingText ">
+		<div class="col-4 headingText ">
+
+
+	<header class="entry-header">
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	</header>
+<hr/>
+
 		<?php
 		the_content();
 

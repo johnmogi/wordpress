@@ -1,6 +1,3 @@
-<?php require_once( get_stylesheet_directory() . '/form-valid.php' ); ?>
-
-
 <?php
 /**
 * Template Name: Home Page
@@ -22,9 +19,9 @@ get_header();
 	</section>
 
 </main><!-- #main -->
-
+<section class="grey">
 <h2 class = 'font_2 text-center'>פרויקטים נבחרים</h2>
-<div class = 'main-projects container'>
+<div class = 'main-projects container mx-auto col-6'>
 <?php
 $content = array();
 $title  = array();
@@ -61,7 +58,6 @@ endforeach;
 echo '<h4 class="box-title">' . $title[0] . '</h4> <hr/>';
 echo '<p>' .$excerpt[0] . '</p>';
 ?>
-<br />
 <a href = "<?php get_site_url ?>/projects/<?php echo $title[0] ?>">
 <img src = '<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png' />
 </a>
@@ -75,7 +71,6 @@ echo '<p>' .$excerpt[0] . '</p>';
 <?php echo '<h4 class="box-title">' . $title[1] . '</h4> <hr/>';
 echo '<p>' .$excerpt[1] . '</p>';
 ?>
-<br />
 <a href = "<?php get_site_url ?>/projects/<?php echo $title[1] ?>">
 <img src = '<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png' />
 </a>
@@ -94,7 +89,6 @@ echo '<p>' .$excerpt[1] . '</p>';
 <?php echo '<h4 class="box-title">' . $title[2] . '</h4> <hr/>';
 echo '<p>' .$excerpt[2] . '</p>';
 ?>
-<br />
 <a href = "<?php get_site_url ?>/projects/<?php echo $title[2] ?>">
 <img src = '<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png' />
 </a>
@@ -111,7 +105,6 @@ echo '<p>' .$excerpt[2] . '</p>';
     <div class="homeCard box-4 col-6">
         <?php echo '<h4 class="box-title">' . $title[3] . '</h4> <hr/>';
 echo '<p>' .$excerpt[3] . '</p>';?>
-        <br />
         <a href="<?php get_site_url ?>/projects/<?php echo $title[3] ?>">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png" />
         </a>
@@ -119,7 +112,7 @@ echo '<p>' .$excerpt[3] . '</p>';?>
 
 </section>
 
-
+<div class="spacersm"></div>
 
 <section class="full-size row ">
 <img src='<?php echo $thumb[4]; ?>' alt='<?php echo $title[4];?>' width='450' class='homeImage box-5 ' />
@@ -127,7 +120,6 @@ echo '<p>' .$excerpt[3] . '</p>';?>
     <div class="homeCard box-5 col-8">
         <?php echo '<h4 class="box-title">' . $title[4] . '</h4> <hr/>';
 echo '<p>' .$excerpt[4] . '</p>';?>
-        <br />
         <a href="<?php get_site_url ?>/projects/<?php echo $title[4] ?>">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png" />
         </a>
@@ -141,7 +133,6 @@ echo '<p>' .$excerpt[4] . '</p>';?>
     <div class="homeCard box-6 col-8">
         <?php echo '<h4 class="box-title">' . $title[5] . '</h4> <hr/>';
 echo '<p>' .$excerpt[5] . '</p>';?>
-        <br />
         <a href="<?php get_site_url ?>/projects/<?php echo $title[5] ?>">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png" />
         </a>
@@ -150,7 +141,7 @@ echo '<p>' .$excerpt[5] . '</p>';?>
 </section>
 
 </div><!-- main-projects -->
-
+</section> <!--grey-->
 <?php
 while ( have_posts() ) :
 the_post();

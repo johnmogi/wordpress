@@ -20,9 +20,10 @@
 
 <?php wp_head();
 ?>
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery-3.3.1.slim.min.js"></script>
+
 <link rel = 'stylesheet' href = 'wp-content/themes/btstrp_john_child/bootstrap-4.5.0-dist/css/bootstrap.min.css' >
 <link rel = 'stylesheet' href = '<?php echo get_stylesheet_directory_uri(); ?>/scss/main.css' >
+
 </head>
 
 <body <?php body_class();
@@ -33,13 +34,12 @@
 
 <header id = 'masthead' class = 'site-header container-fluid'>
 
-<nav id="top-menu" class = 'navbar sticky-top navbar-expand-lg my-2 my-lg-0' role = 'navigation'>
+<nav class = 'navbar navbar-expand-lg  my-2 my-lg-0' role = 'navigation'>
 <div class = 'container'>
 
 
- <button class ='navbar-toggler' type ='button' data-toggle='collapsed' data-target='#navbar-collapsed-1' aria-controls='navbar-collapsed-1' aria-expanded='false' aria-label="<php esc_attr_e( 'Toggle navigation', 'btstrp_john ' ); ?>">
-<!-- <span class='navbar-toggler-icon'></span> -->
-<img class='navbar-toggler-icon' src="<?php echo get_stylesheet_directory_uri(); ?>/images/menu.svg" alt="menu">
+ <button class = 'navbar-toggler' type = 'button' data-toggle = 'collapse' data-target = '#navbar-collapse-1' aria-controls = 'navbar-collapse-1' aria-expanded = 'false' aria-label = "<php esc_attr_e( 'Toggle navigation', 'btstrp_john ' ); ?>">
+<span class = 'navbar-toggler-icon'></span>
 </button> 
 
 <?php
@@ -48,8 +48,8 @@ wp_nav_menu( array(
     'menu_id'        => 'primary-menu',
     'depth'             => 2,
     'container'         => 'div',
-    'container_class'   => 'collapsed navbar-collapsed',
-    'container_id'      => 'navbar-collapsed-1',
+    'container_class'   => 'collapse navbar-collapse',
+    'container_id'      => 'navbar-collapse-1',
     'menu_class'        => 'nav navbar-nav',
 
 ) );

@@ -3,6 +3,8 @@ add_action( 'wp_enqueue_scripts', 'enqueue_parent_styles' );
 
 function enqueue_parent_styles() {
    wp_enqueue_style( 'parent-style', get_stylesheet_directory_uri().'/style.css' );
+   wp_enqueue_style( 'wp-bootstrap-starter-bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css' );
+   wp_enqueue_style( 'wp-bootstrap-starter-fontawesome-cdn', 'https://use.fontawesome.com/releases/v5.10.2/css/all.css' );
 }
 #do_action(‘wp_enqueue_scripts’, enqueue_parent_styles);
 add_filter('use_block_editor_for_post', '__return_false', 10);
@@ -30,26 +32,16 @@ function aw_include_script() {
 }
 add_action( 'admin_enqueue_scripts', 'aw_include_script' );
 
+
+
+
 // get rid of a jquery err
 wp_deregister_script('hoverIntent');
 
-
-// //build custom meta box, didn't find a way to require include here
-// add_action( 'add_meta_boxes', 'cyb_add_metaboxes', 10, 2 ); 
-// function cyb_add_metaboxes( $post_type, $post ) {
-
-//    if( $post->ID == get_option( 'page_on_front' ) ) {
-
-//       add_meta_box(
-//           'front-page-metabox', 
-//           'פרוייקטים לעמוד הבית', 
-//           'cyb_front_page_metabox', 
-//           'page' );
-
-//    }
-
-// }
-
-// // Metabox callback
-// function cyb_front_page_metabox() {
-// }
+if ( ! file_exists( get_template_directory() . '/class-wp-bootstrap-navwalker.php' ) ) {
+    // File does not exist... return an error.
+    return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker' ) );
+} else {
+    // File exists... require it.
+    require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+}
