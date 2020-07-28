@@ -22,7 +22,7 @@
 ?>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery-3.3.1.slim.min.js"></script>
 <link rel = 'stylesheet' href = 'wp-content/themes/btstrp_john_child/bootstrap-4.5.0-dist/css/bootstrap.min.css' >
-<link rel = 'stylesheet' href = '<?php echo get_stylesheet_directory_uri(); ?>/scss/main.css' >
+<link rel = 'stylesheet' href = '<?php echo get_stylesheet_directory_uri(); ?>/scss/style.min.css' >
 </head>
 
 <body <?php body_class();

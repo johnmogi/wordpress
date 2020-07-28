@@ -31,12 +31,16 @@ $posts = get_posts( array( 'post_type' => 'project',  'posts_per_page'=>6 ) );
 if( $posts ):
    foreach( $posts as $post ) :   
     setup_postdata($post); ?>
-<div class="col-6 px-3 card-bg" >
-    <div class = 'project-card text-center' style = "height:250px;background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
-        <span class="project-name "><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span>
+    <a href="<?php the_permalink(); ?>" class="col-6 px-3" >
+        <div class="layer text-center">
+        <span class="project-name "><?php the_title(); ?></span>
+
+        </div>
+<div class="card-bg" >
+    <div class = 'project-card' style = "height:250px;background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
         </div>
     </div>
-
+    </a>
 
    <?php endforeach; 
 wp_reset_postdata(); 
