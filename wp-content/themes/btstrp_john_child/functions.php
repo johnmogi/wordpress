@@ -22,6 +22,7 @@ add_filter('style_loader_src', 'remove_version_scripts_styles', 9999);
 add_filter('script_loader_src', 'remove_version_scripts_styles', 9999);
 
 require_once( get_stylesheet_directory() . '/cpt/project_cpt.php' );
+require_once( get_stylesheet_directory() . '/category-meta.php' );
 
 // add image uploader to meta box - on edit page
 function aw_include_script() {

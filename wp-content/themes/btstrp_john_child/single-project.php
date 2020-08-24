@@ -10,20 +10,21 @@
 get_header();
 ?>
 <?php $customCover = get_post_meta( $post->ID, 'john_meta_box_customCover', true );
-# var_dump( $customCover);
+//  echo var_dump( $customCover);
 ?>
-<?php if (!$customCover) { ?>
+<?php if (strlen($customCover)<1) { ?>
     <section id = 'primary' class = 'container-fluid hero jumbotron' style = "background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
         <?php
 }else{
     ?>
-    <section id = 'primary' class = 'container-fluid hero jumbotron' style = "background-image: url('<?php $customCover ?>');">
+    <section id = 'primary' class = 'container-fluid hero jumbotron' style = "background-image: url('<?php echo $customCover ?>');">
     <?php } ?>
     
 
 <div class = 'container space-top'>
-
-
+<?php $customCover = get_post_meta( $post->ID, 'john_meta_box_customCover', true );
+//  echo strlen($customCover); 
+?>
 <?php
 while ( have_posts() ) :
 the_post();

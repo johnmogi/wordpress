@@ -20,13 +20,13 @@ get_header();
 
 </main><!-- #main -->
 <section class="grey">
-<h2 class = 'font_2 text-center'>פרויקטים נבחרים</h2>
+<h1 class = 'font_2 text-center'>פרויקטים נבחרים</h1>
 <div class = 'main-projects container mx-auto col-6'>
 <?php
 $content = array();
 $title  = array();
 $excerpt  = array();
-
+$link= array();
 // query for pics
 $args = array( 'post_type' => 'project', 'posts_per_page'=>6, 'orderby'=>'menu_order', 'order'   => 'DESC', );
 $fetchQuery = new WP_Query( $args );
@@ -39,16 +39,16 @@ $thumb[] = get_the_post_thumbnail_url();
 endwhile;
 endif;
 
-$projects = get_posts( array( 'post_type' => 'project', 'orderby'=>'menu_order', 'posts_per_page'=>6, ) );
+$projects = get_posts( array( 'post_type' => 'project', 'orderby'=>'menu_order', 'posts_per_page'=>6,  ) );
 
 foreach ( $projects as $project ):
 $title[] = $project->post_title;
-
+$link[] = $project->ID;
 $excerpt[] = $project->post_excerpt;
 $content[] = $project->post_content;
 endforeach;
 
-# var_dump( $title, $excerpt );
+#var_dump(  $link );
 ?>
 <div class = 'row mx-auto'>
 <div class = 'col-6 px-2'>
@@ -58,7 +58,7 @@ endforeach;
 echo '<h4 class="box-title">' . $title[0] . '</h4> <hr/>';
 echo '<p>' .$excerpt[0] . '</p>';
 ?>
-<a href = "<?php get_site_url ?>/projects/<?php echo $title[0] ?>">
+<a href = "<?php get_site_url ?>/?p=<?php echo $link[0]; ?>">
 <img src = '<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png' />
 </a>
 
@@ -71,7 +71,7 @@ echo '<p>' .$excerpt[0] . '</p>';
 <?php echo '<h4 class="box-title">' . $title[1] . '</h4> <hr/>';
 echo '<p>' .$excerpt[1] . '</p>';
 ?>
-<a href = "<?php get_site_url ?>/projects/<?php echo $title[1] ?>">
+<a href = "<?php get_site_url ?>/?p=<?php echo $link[1]; ?>">
 <img src = '<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png' />
 </a>
 </div> <!-- home box-3-->
@@ -89,7 +89,7 @@ echo '<p>' .$excerpt[1] . '</p>';
 <?php echo '<h4 class="box-title">' . $title[2] . '</h4> <hr/>';
 echo '<p>' .$excerpt[2] . '</p>';
 ?>
-<a href = "<?php get_site_url ?>/projects/<?php echo $title[2] ?>">
+<a href = "<?php get_site_url ?>/?p=<?php echo $link[2]; ?>">
 <img src = '<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png' />
 </a>
 </div>
@@ -101,11 +101,11 @@ echo '<p>' .$excerpt[2] . '</p>';
 </div>
 <section class="full-size row pt-120">
 
-    <img src='<?php echo $thumb[3]; ?>' alt='<?php echo $title[3];?>' width='450' class='homeImage box-4 col-6' />
+    <img src='<?php echo $thumb[3]; ?>' alt='<?php echo $title[3];?>' width='450' class='homeImage box-4 col-4' />
     <div class="homeCard box-4 col-6">
         <?php echo '<h4 class="box-title">' . $title[3] . '</h4> <hr/>';
 echo '<p>' .$excerpt[3] . '</p>';?>
-        <a href="<?php get_site_url ?>/projects/<?php echo $title[3] ?>">
+<a href = "<?php get_site_url ?>/?p=<?php echo $link[3]; ?>">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png" />
         </a>
     </div>
@@ -120,7 +120,7 @@ echo '<p>' .$excerpt[3] . '</p>';?>
     <div class="homeCard box-5 col-8">
         <?php echo '<h4 class="box-title">' . $title[4] . '</h4> <hr/>';
 echo '<p>' .$excerpt[4] . '</p>';?>
-        <a href="<?php get_site_url ?>/projects/<?php echo $title[4] ?>">
+<a href = "<?php get_site_url ?>/?p=<?php echo $link[4]; ?>">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png" />
         </a>
     </div>
@@ -133,7 +133,7 @@ echo '<p>' .$excerpt[4] . '</p>';?>
     <div class="homeCard box-6 col-8">
         <?php echo '<h4 class="box-title">' . $title[5] . '</h4> <hr/>';
 echo '<p>' .$excerpt[5] . '</p>';?>
-        <a href="<?php get_site_url ?>/projects/<?php echo $title[5] ?>">
+<a href = "<?php get_site_url ?>/?p=<?php echo $link[5]; ?>">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/arrow.png" />
         </a>
     </div>

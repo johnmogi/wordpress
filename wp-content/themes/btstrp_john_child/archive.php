@@ -1,31 +1,37 @@
 <?php
 /**
-* Template Name: Projects Page
-*
+ * The template for displaying archive pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- * @link https://developer.wordpress.org/themes/template-files-section/page-template-files/
+ *
  * @package btstrp_john
  */
 
 get_header();
+
+
+
+
+$cat_id = get_query_var('cat');
+ $category_image = get_option("category_$cat_id");
+
+
 ?>
 
-<main id = 'primary' class = 'container-fluid hero jumbotron' style = "background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>');">
 
 
-    <div class="spacer"></div>
+<main id = 'primary' class = 'container-fluid hero jumbotron' style = "background-image: url('<?php echo $category_image['img']; ?>');">
+	
+
 </main>
-<div class="spacer"></div>
-</div>
-<div class="container mx-auto bg-light projects-heading">
 
-<?php the_title( '<h1 class="entry-header font_2 text-center">', '</h1> ' ); ?>
+<div class="container mx-auto bg-white projects-heading" style="margin-top: -250px;">
+<?php single_cat_title( '<h1 class="entry-header font_2 text-center">', '</h1> ' ); ?>
 </div>
 <section class="container-fluid grey">
-<div class="main-projects container mx-auto bg-light">
+<div class="main-projects container mx-auto bg-white">
     <div id="stage">
-<div class="row bg-light">
+<div class="row bg-white">
 <?php
 
 
@@ -46,12 +52,10 @@ if( $posts ):
     </a>
 
    <?php endforeach; 
-wp_reset_postdata(); 
 endif; ?>
 </div>
 </div>
 </div><!--grey -->
-
 
 
 

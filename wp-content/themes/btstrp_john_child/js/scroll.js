@@ -2,19 +2,25 @@ window.onscroll = function() { scrollFunction() };
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("masthead").style.height = "80px";
-        document.getElementById("top-menu").style.height = "80px";
-        //   document.getElementById("navbar-collapsed-1").style.transform = "translateY(51px)";
+        document.getElementById("masthead").style.height = "60px";
+        document.getElementById("top-menu").style.height = "60px";
+        document.getElementById("logo").style.width = "120px";
+        document.getElementById("toggletop").style.top = "0px";
+
+    //     $('#navbar-collapsed-1').style.transform =  "translateY(70px)";
+     document.getElementById("navbar-collapsed-1").style.transform = "translateY(70px)";
 
 
-        document.getElementById("logo").style.width = "100px";
+        document.getElementById("logo").style.width = "80px";
         //  document.getElementById("wpadminbar").style.display = "none";
     } else {
-        document.getElementById("masthead").style.height = "120px";
-        document.getElementById("top-menu").style.height = "120px";
-        //    document.getElementById("navbar-collapsed-1").style.transform = "translateY(111px)";
+        document.getElementById("masthead").style.height = "100px";
+        document.getElementById("top-menu").style.height = "100px";
+        // $('#navbar-collapsed-1').style.transform =  "translateY(110px)";
+       document.getElementById("navbar-collapsed-1").style.transform = "translateY(110px)";
+       document.getElementById("toggletop").style.top = "28px";
 
-        document.getElementById("logo").style.width = "200px";
+        document.getElementById("logo").style.width = "170px";
         //   document.getElementById("wpadminbar").style.display = "block";
 
 

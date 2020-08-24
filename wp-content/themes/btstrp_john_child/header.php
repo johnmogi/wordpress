@@ -21,8 +21,7 @@
 <?php wp_head();
 ?>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery-3.3.1.slim.min.js"></script>
-<link rel = 'stylesheet' href = 'wp-content/themes/btstrp_john_child/bootstrap-4.5.0-dist/css/bootstrap.min.css' >
-<link rel = 'stylesheet' href = '<?php echo get_stylesheet_directory_uri(); ?>/scss/style.min.css' >
+<link rel = 'stylesheet' href = '<?php echo get_stylesheet_directory_uri(); ?>/bootstrap-4.5.0-dist/css/bootstrap.min.css' >
 </head>
 
 <body <?php body_class();
@@ -37,7 +36,7 @@
 <div class = 'container'>
 
 
- <button class ='navbar-toggler' type ='button' data-toggle='collapsed' data-target='#navbar-collapsed-1' aria-controls='navbar-collapsed-1' aria-expanded='false' aria-label="<php esc_attr_e( 'Toggle navigation', 'btstrp_john ' ); ?>">
+ <button id='toggletop' class ='navbar-toggler' type ='button' data-toggle='collapsed' data-target='#navbar-collapsed-1' aria-controls='navbar-collapsed-1' aria-expanded='false' aria-label="<php esc_attr_e( 'Toggle navigation', 'btstrp_john ' ); ?>">
 <!-- <span class='navbar-toggler-icon'></span> -->
 <img class='navbar-toggler-icon' src="<?php echo get_stylesheet_directory_uri(); ?>/images/menu.svg" alt="menu">
 </button> 

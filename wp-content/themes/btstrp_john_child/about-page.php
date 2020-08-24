@@ -43,14 +43,14 @@ $desc4 = get_post_meta( $post->ID, 'john_meta_box_desc4', true );
 		?>
 <div class = 'container'>
     <div class="spacersm"></div>
-    
-    <div class="container col-6 offset-md-1">
-        <div class="pbox col-10">
+    <h2 id="pageTitle"> הצוות שלנו </h2>
+    <div class="container col-5 offset-md-1">
+        <div class="pbox col-8">
             <h3><?php echo $title1 ?></h3>
             <hr/>
             <h4><?php echo $desc1 ?></h4>
         </div>
-        <img class="pr-image" alt ='team member1' src = "<?php echo $image1 ?>" width="251"/>
+        <img class="pr-image col-6" alt ='team member1' src = "<?php echo $image1 ?>" width="251"/>
     </div>
     <div class="spacersm"></div>
 
